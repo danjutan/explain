@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SUBJECT</title>
+    <style>
+      :root {
+        --bg: #fbfbfa;
+        --fg: #1a1a1a;
+        --muted: #5a5a5a;
+        --rule: #e3e3df;
+        --accent: #2563eb;
+        --card: #ffffff;
+        --code-bg: #f3f3f1;
+        --good: #15803d;
+        --warn: #b45309;
+        --bad: #b91c1c;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #15161a;
+          --fg: #e8e8ea;
+          --muted: #9a9aa2;
+          --rule: #2a2c33;
+          --accent: #6ea8fe;
+          --card: #1d1f25;
+          --code-bg: #23252c;
+          --good: #4ade80;
+          --warn: #fbbf24;
+          --bad: #f87171;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          17px/1.65 ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 6rem;
+      }
+      h1 {
+        font-size: 2.2rem;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin: 0 0 2.5rem;
+      }
+      h3 {
+        font-size: 1.15rem;
+        margin: 1.8rem 0 0.6rem;
+      }
+      p {
+        color: var(--fg);
+      }
+      a {
+        color: var(--accent);
+      }
+      code {
+        font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+        font-size: 0.88em;
+        background: var(--code-bg);
+        padding: 0.12em 0.4em;
+        border-radius: 4px;
+      }
+      pre {
+        background: var(--code-bg);
+        border: 1px solid var(--rule);
+        border-radius: 8px;
+        padding: 1rem 1.1rem;
+        overflow-x: auto;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+      pre code {
+        background: none;
+        padding: 0;
+      }
+
+      /* The ladder: each <li class="rung"> is one auto-numbered rung; <li class="rest">
+     is an unnumbered rest marker. Rules for both live in ladder.md. */
+      ol.ladder {
+        list-style: none;
+        counter-reset: rung;
+        margin: 0;
+        padding: 0;
+      }
+      ol.ladder > li.rung {
+        counter-increment: rung;
+        position: relative;
+        padding: 1.25rem 0 1.25rem 3.4rem;
+        border-bottom: 1px solid var(--rule);
+      }
+      ol.ladder > li.rung::before {
+        content: counter(rung);
+        position: absolute;
+        left: 0;
+        top: 1.2rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        color: var(--accent);
+        background: var(--card);
+        border: 1.5px solid var(--accent);
+      }
+      ol.ladder > li.rung > :first-child {
+        margin-top: 0;
+      }
+      ol.ladder > li.rung > :last-child {
+        margin-bottom: 0;
+      }
+      ol.ladder ul,
+      ol.ladder ol {
+        padding-left: 1.2rem;
+      }
+      ol.ladder > li.rest {
+        counter-increment: none;
+        list-style: none;
+        margin: 1.5rem 0;
+        padding: 1rem 1.2rem;
+        border-radius: 8px;
+        background: var(--card);
+        border: 1px solid var(--rule);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      ol.ladder > li.rest::before {
+        content: none;
+      }
+      ol.ladder > li.rest .label {
+        display: block;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.3rem;
+      }
+      li {
+        color: var(--fg);
+      }
+
+      figure {
+        margin: 1.2rem 0;
+        text-align: center;
+      }
+      figure svg {
+        max-width: 100%;
+        height: auto;
+      }
+      figcaption {
+        color: var(--muted);
+        font-size: 0.85rem;
+        margin-top: 0.5rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.2rem 0;
+        font-size: 0.95rem;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 0.55rem 0.7rem;
+        border-bottom: 1px solid var(--rule);
+      }
+      th {
+        font-weight: 600;
+      }
+      .callout {
+        border-left: 3px solid var(--accent);
+        background: var(--card);
+        border-radius: 0 8px 8px 0;
+        padding: 0.8rem 1.1rem;
+        margin: 1rem 0;
+      }
+      .callout.warn {
+        border-color: var(--warn);
+      }
+      .callout.bad {
+        border-color: var(--bad);
+      }
+      .callout.good {
+        border-color: var(--good);
+      }
+      .callout .label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 700;
+        color: var(--muted);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      @media print {
+        body {
+          background: #fff;
+          color: #000;
+          font-size: 12pt;
+        }
+        main {
+          max-width: none;
+          padding: 0;
+        }
+        ol.ladder > li.rung,
+        figure,
+        table,
+        .callout {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>SUBJECT</h1>
+
+      <!--
+    The body is this ordered list; rung content, ordering, rest markers, and
+    diagrams follow ladder.md. Inside a rung you may use <pre><code>, a
+    <figure> with inline <svg>, or a .callout. Drop the example rungs (and
+    this comment) before shipping.
+  -->
+      <ol class="ladder">
+        <li class="rung">First idea.</li>
+
+        <li class="rung">
+          Second idea, with a grounding snippet:
+          <pre><code>concrete example from the real source</code></pre>
+        </li>
+
+        <li class="rung">
+          Third idea, with a diagram:
+          <figure>
+            <svg
+              viewBox="0 0 600 180"
+              role="img"
+              aria-label="what the diagram shows"
+            ></svg>
+            <figcaption>What the diagram shows, in plain language.</figcaption>
+          </figure>
+        </li>
+
+        <li class="rest">
+          <span class="label">Resting point</span>
+          One or two sentences recapping the ground covered so far.
+        </li>
+      </ol>
+    </main>
+  </body>
+</html>
