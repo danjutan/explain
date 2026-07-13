@@ -37,13 +37,14 @@ The agent reports back with the path of the saved page. The page is fully self-c
 
 - **Local browser.** The user has a GUI browser on this machine: hand them the absolute file path and the matching `file://` URL, and open it with the OS opener (`xdg-open`, `open`) if one is available.
 
-- **Remote or headless.** The session runs on a remote machine, container, or devbox that the user views through a tunnel or forwarded port: serve the explainer directory on localhost **8888**, reusing an existing server only if it already serves this explainer:
+- **Remote or headless.** The session runs on a remote machine, container, or devbox that the user views through a tunnel or forwarded port. Serve `~/.claude/explainers/` on localhost **8888** if nothing is serving it yet; never fight another process for the port. Three outcomes:
 
-  ```bash
-  curl -sf -o /dev/null http://localhost:8888/<kebab-subject>.html \
-    || ( cd ~/.claude/explainers && python3 -m http.server 8888 >/tmp/explainer-8888.log 2>&1 & )
-  ```
+  1. `curl -sf -o /dev/null http://localhost:8888/<kebab-subject>.html` succeeds: a previous run's server already covers the new file. Give the user `http://localhost:8888/<kebab-subject>.html`.
+  2. That fails but `curl -s -o /dev/null http://localhost:8888/` succeeds: something else owns the port. Tell the user localhost:8888 was taken and give them the `file://` link instead.
+  3. Both fail: the port is free. Start the server so it outlives the turn (in Claude Code, the Bash tool's `run_in_background`), then give the user the URL:
 
-  Start the server in the background so it outlives the turn (in Claude Code, the Bash tool's `run_in_background`). If the start fails because another process owns 8888 (check `/tmp/explainer-8888.log`), that server has the wrong root: stop it, or serve on 8889 and adjust the URL. Then give the user the exact URL to open: `http://localhost:8888/<kebab-subject>.html`.
+     ```bash
+     cd ~/.claude/explainers && python3 -m http.server 8888 >/dev/null 2>&1
+     ```
 
 **Done when:** the user holds a working address for the page: a `file://` path that exists, or a localhost URL that `curl -sf` returns.
