@@ -2,7 +2,7 @@
 
 An agent skill that teaches any subject as a **concept ladder**: a numbered climb of one-sentence rungs, where each rung adds exactly one new idea on top of the rungs below it. The reader climbs one small step at a time, never holding too much at once, and never jumping ahead to understand the step they are on.
 
-The output is a single self-contained HTML page (all CSS and JS inline, no network dependency) that the agent hands back as a local file or a localhost URL.
+The output is a single self-contained HTML page (all CSS and JS inline, no network dependency) that the agent hands back as a local file.
 
 ## Install
 
@@ -24,7 +24,7 @@ The skill dispatches the heavy work to a **background agent**, so your session's
 
 1. **Ground** (agent). For a repo subject it reads the actual files and runs commands; for a general concept it verifies anything uncertain with web search. Every claim in the ladder must trace to something verified.
 2. **Build** (agent). It fills an HTML scaffold with rungs following the method in [`ladder.md`](skills/explain/ladder.md): bite-sized, self-contained, building; terms introduced before they are used; inline SVG diagrams only where words genuinely cannot carry the picture.
-3. **Hand off** (session). On a machine with a local browser it hands you the `file://` path; on a remote or headless box it serves the explainer directory on localhost 8888 and hands you the URL (or, if another process holds that port, hands you the file path instead).
+3. **Hand off** (session). It hands you the absolute file path and the matching `file://` URL, and opens the page with the OS opener (`xdg-open`, `open`) if one is available. How you view the file from a remote or headless box is up to you (mounted directory, `scp`, your own static server).
 
 ## Where explainers go
 
