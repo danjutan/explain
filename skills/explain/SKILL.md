@@ -33,6 +33,6 @@ Do none of the build work yourself: no reading the subject's files, no HTML. The
 
 ## 3. Hand off
 
-The agent reports back with the path of the saved page. Hand the user the absolute file path and the matching `file://` URL, and open it with the OS opener (`xdg-open`, `open`) if one is available.
+The agent reports back with the path of the saved page. Hand the user the `file://` URL corresponding to the file path, and open it with the OS opener (`xdg-open`, `open`) if one is available.
 
 **Done when:** the user holds a working address for the page.
