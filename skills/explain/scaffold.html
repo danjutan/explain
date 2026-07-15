@@ -134,6 +134,29 @@
       ol.ladder ol {
         padding-left: 1.2rem;
       }
+
+      /* Sub-ladder: a nested <ol class="ladder"> inside a rung holds sibling
+     sub-rungs, indented but continuing the main count; when to nest lives
+     in ladder.md. */
+      ol.ladder ol.ladder {
+        counter-reset: none;
+        margin: 1rem 0 0;
+        padding: 0;
+      }
+      ol.ladder ol.ladder > li.rung {
+        padding: 0.9rem 0 0.9rem 3.2rem;
+        border-bottom: 1px dashed var(--rule);
+      }
+      ol.ladder ol.ladder > li.rung:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      ol.ladder ol.ladder > li.rung::before {
+        width: 1.9rem;
+        height: 1.9rem;
+        font-size: 0.85rem;
+        top: 0.95rem;
+      }
       ol.ladder > li.rest {
         counter-increment: none;
         list-style: none;
@@ -261,6 +284,14 @@
             ></svg>
             <figcaption>What the diagram shows, in plain language.</figcaption>
           </figure>
+        </li>
+
+        <li class="rung">
+          Fourth idea, a parent whose siblings nest beneath it:
+          <ol class="ladder">
+            <li class="rung">First sibling sub-rung.</li>
+            <li class="rung">Second sibling sub-rung.</li>
+          </ol>
         </li>
 
         <li class="rest">

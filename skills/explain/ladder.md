@@ -4,7 +4,7 @@ Teach the subject by building a ladder: a numbered sequence of single-sentence s
 
 ## The format
 
-The body is the scaffold's `<ol class="ladder">`. Each rung is one `<li class="rung">`; the number is automatic, starting at 1. A rung is just the text (and any code or figure) inside its `<li>`.
+The body is the scaffold's `<ol class="ladder">`. Each rung is one `<li class="rung">`; the number is automatic, starting at 1. A rung is just the text (and any code or figure) inside its `<li>`. A rung may also hold a nested sub-ladder of sibling sub-rungs, indented but continuing the same count; see "Sub-rungs" below.
 
 ```
 1. First idea. Depends on nothing but everyday knowledge.
@@ -29,6 +29,30 @@ Three properties, and every rung should have all three:
 - **Introduce a term before you use it.** When a concept needs a piece of jargon, give that term its own rung (or define it inline the first time) before any later rung leans on it. No forward references.
 - **One leap at a time.** If moving from one rung to the next feels like it requires the reader to figure something out themselves, insert the missing rung. The gap between consecutive rungs should be small enough to feel obvious in hindsight.
 - **Land the concept.** The last rung should state the thing the user actually asked about, now fully earned by everything above it. The page has no lede and no up-front summary, so the bottom rung is where the payoff arrives.
+
+## Sub-rungs: siblings step off the rail
+
+The main rail is a chain: each rung rests on the one before it. But some clusters of ideas are siblings, not links in the chain: the phases of a rollout, the cases of a rule, the parts of a structure, the risks of a plan. Siblings all rest on the same parent idea, and laying them flat on the rail misstates the shape, because rung 6 then looks like it rests on rung 5 when both really rest on rung 4.
+
+When you hit such a cluster, nest it. The parent rung states the umbrella idea in one sentence, and each sibling becomes a sub-rung beneath it: a nested `<ol class="ladder">` inside the parent's `<li class="rung">`, one `<li class="rung">` per sibling. The numbering climbs straight through, indentation alone marks the hierarchy: parent 4, its siblings 5 and 6, the next top-level rung 7.
+
+While ordering the ladder, actively hunt for sibling clusters: two or more consecutive rungs that each elaborate the same earlier rung are a sub-ladder waiting to be indented.
+
+- **The parent stays a rung.** One complete sentence that names the set, so the top rail still reads as a whole climb for a reader who skims past every sub-rung.
+- **Sub-rungs are rungs.** Bite-sized, self-contained, building: all three properties hold, and within a sub-ladder the ordering principles apply among the siblings.
+- **One level.** Sub-rungs never nest further; a sub-rung that wants children of its own is a sign the parent deserves its own stretch of the top rail.
+- **Rest markers stay on the rail.** They recap the whole climb, so they sit at the top level only.
+
+A compact example, from a rollout-plan ladder:
+
+```
+4. The promotion runs in two phases.
+   5. Phase 1 moves read traffic to the new index.
+   6. Phase 2 moves writes, once reads have held steady for a day.
+7. Because writes move last (rung 6), aborting mid-rollout never loses data.
+```
+
+Rung 7 rests on rung 4's idea and cites the sibling it leans on; a skimming reader who only takes "two phases" from rung 4 still climbs cleanly.
 
 ## Length
 
@@ -83,6 +107,6 @@ Subject: "Why does ice float?"
 12. Taking up more room with the same mass means ice is less dense than liquid water (rung 1).
 13. Being less dense than the water around it, ice floats (rung 3).
 
-Notice: rung 1 assumes only everyday knowledge, every term is defined before it is used, each rung is a single sentence carrying a single idea, and the last rung lands exactly on the question that was asked.
+Notice: rung 1 assumes only everyday knowledge, every term is defined before it is used, each rung is a single sentence carrying a single idea, and the last rung lands exactly on the question that was asked. Notice also that this ladder is a pure chain, each idea resting on the last, so nothing nests: sub-rungs earn their place only where siblings appear.
 
 Rungs 6 and 9 through 12 all hinge on one mental image: how the molecules are packed in liquid water versus in solid ice. A single side-by-side diagram of the tight liquid arrangement next to the open hexagonal ice lattice, placed in rung 9 where that structure is introduced, would let the reader see the spacing rather than imagine it, and the neighboring rungs could all lean on that one image. The other rungs are abstract enough that they need no picture.
