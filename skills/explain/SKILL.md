@@ -9,6 +9,11 @@ Teach one subject as a **concept ladder**: a numbered climb of one-sentence rung
 
 **No em dashes.** Never use the em dash character (U+2014) in anything you write about this work; use a comma, colon, semicolon, parentheses, or two sentences instead. (build.md binds the agent to the same rule.)
 
+## Settings
+
+- `URL_TEMPLATE`: `file://{path}` — the hand-off URL.
+`{path}` is the saved page's absolute path; `{filename}` is its name within `~/.claude/explainers/`. If you have server rooted at that directory, use e.g. `http://localhost:8888/{filename}`.
+
 ## 1. Resolve the subject and its pointers
 
 The subject is `$ARGUMENTS`. If empty, it is the thing just worked on or discussed this session.
@@ -33,6 +38,6 @@ Do none of the build work yourself: no reading the subject's files, no HTML. The
 
 ## 3. Hand off
 
-The agent reports back with the path of the saved page. Hand the user the `file://` URL corresponding to the file path, and open it with the OS opener (`xdg-open`, `open`) if one is available.
+The agent reports back with the path of the saved page. Hand the user the URL formed by filling `URL_TEMPLATE` from that path, and open it with the OS opener (`xdg-open`, `open`) if one is available.
 
 **Done when:** the user holds a working address for the page.

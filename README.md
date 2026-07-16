@@ -24,7 +24,7 @@ The skill dispatches the heavy work to a **background agent**, so your session's
 
 1. **Ground** (agent). For a repo subject it reads the actual files and runs commands; for a general concept it verifies anything uncertain with web search. Every claim in the ladder must trace to something verified.
 2. **Build** (agent). It fills an HTML scaffold with rungs following the method in [`ladder.md`](skills/explain/ladder.md): bite-sized, self-contained, building; terms introduced before they are used; inline SVG diagrams only where words genuinely cannot carry the picture.
-3. **Hand off** (session). It hands you the absolute file path and the matching `file://` URL, and opens the page with the OS opener (`xdg-open`, `open`) if one is available. How you view the file from a remote or headless box is up to you (mounted directory, `scp`, your own static server).
+3. **Hand off** (session). It hands you a URL for the page (by default the `file://` URL of the absolute path; the `URL_TEMPLATE` setting in `SKILL.md` can point at a static server instead, e.g. `http://dev-server:8888/{filename}`), and opens the page with the OS opener (`xdg-open`, `open`) if one is available.
 
 ## Where explainers go
 
