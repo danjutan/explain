@@ -23,7 +23,7 @@ Copy `scaffold.html` (next to this file) to `~/.claude/explainers/<kebab-subject
 
 Explainers are a personal reference library, not project artifacts, so they always accumulate in `~/.claude/explainers/` regardless of which project or agent you are running in.
 
-- **Follow the method.** Build the rungs per `ladder.md` (next to this file): bite-sized, self-contained, building, starting from the floor and landing on the concept the user asked about. That file is the source of truth for what a good rung is, how to order them, length, rest markers, and when a rung needs a diagram.
+- **Follow the method.** Build the rungs per `ladder.md` (next to this file): bite-sized, self-contained, building, starting from the floor and landing on the concept the user asked about. That file is the source of truth for what a good rung is, how to order them, length, rest markers, section headings, and when a rung needs a diagram.
 - **Self-contained file.** All CSS and JS inline, no CDN or network dependency, so the page renders fully offline.
 - **Concrete over abstract.** Quote the real code, paths, and values you grounded in step 1. Use inline SVG for any diagram.
 

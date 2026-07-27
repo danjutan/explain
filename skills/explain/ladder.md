@@ -40,8 +40,7 @@ While ordering the ladder, actively hunt for sibling clusters: two or more conse
 
 - **The parent stays a rung.** One complete sentence that names the set, so the main ladder still reads as a whole climb for a reader who skims past every sub-rung.
 - **Sub-rungs are rungs.** Bite-sized, self-contained, building: all three properties hold, and within a sub-ladder the ordering principles apply among the siblings.
-- **One level.** Sub-rungs never nest further; a sub-rung that wants children of its own is a sign the parent deserves its own stretch of the main ladder.
-- **Rest markers stay on the main ladder.** They recap the whole climb, so they sit at the top level only.
+- **Rest markers and section headings stay on the main ladder.** They recap and organize the whole climb, so they sit at the top level only.
 
 A compact example, from a rollout-plan ladder:
 
@@ -58,12 +57,14 @@ Rung 7 rests on rung 4's idea and cites the sibling it leans on; a skimming read
 
 Scale the number of rungs to the concept, and no more. A simple idea might take 4 to 6 rungs; a meatier one might need more. Do not pad with filler rungs to seem thorough, and do not cram multiple ideas into one rung to seem concise. The right length is however many small, honest steps it takes to get from the floor to the concept.
 
-## Rest markers
+## Rest markers and section headings
 
-The reader paces themselves by scrolling, so there is no pause-and-wait handoff. On a long ladder, give the reader periodic consolidation instead: roughly every ten rungs, drop a `<li class="rest">` that recaps the ground covered so far in one or two sentences. It takes no number and does not break the climb.
+A long ladder usually climbs through a few distinct stretches: for example, the setup, the mechanism, the consequences. Find clean resting points that divide sections. At each dividing point, add
 
-- Place a rest marker near a clean resting point, around every tenth rung. A short ladder (under about ten rungs) needs none.
-- Let the final rest marker double as the closing recap on a long ladder. Do not add a separate "in short" line, and do not group rungs under section headers: the numbered climb stays continuous from rung 1 to the end.
+- A **rest marker**, consolidating the climb behind. Drop a `<li class="rest">` that recaps the ground covered so far in one or two sentences. Let the final rest marker double as the closing recap; do not add a separate "in short" line.
+- A **section heading**, naming the stretch ahead. Give each stretch a heading, an `<li class="section">` holding an `<h2>` placed just before the first rung of the stretch it names. Name the stretch ahead in a few plain words, not a full sentence: the heading orients, the rungs still do all the teaching. The first stretch of the ladder should also start with a section heading.
+
+The two pair naturally: a rest marker recaps the stretch just climbed, and the next section heading names the stretch about to begin. Keep both; neither replaces the other. A short ladder (under about ten rungs) needs neither. 
 
 ## When a rung needs a picture
 

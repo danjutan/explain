@@ -180,6 +180,23 @@
         color: var(--accent);
         margin-bottom: 0.3rem;
       }
+
+      /* Section heading: an unnumbered <li class="section"> titling the next
+     stretch of a long ladder; when to use lives in ladder.md. */
+      ol.ladder > li.section {
+        counter-increment: none;
+        list-style: none;
+        padding: 2.4rem 0 0.2rem;
+      }
+      ol.ladder > li.section::before {
+        content: none;
+      }
+      ol.ladder > li.section h2 {
+        font-size: 1.35rem;
+        line-height: 1.25;
+        letter-spacing: -0.015em;
+        margin: 0;
+      }
       li {
         color: var(--fg);
       }
@@ -261,12 +278,16 @@
       <h1>SUBJECT</h1>
 
       <!--
-    The body is this ordered list; rung content, ordering, rest markers, and
-    diagrams follow ladder.md. Inside a rung you may use <pre><code>, a
-    <figure> with inline <svg>, or a .callout. Drop the example rungs (and
-    this comment) before shipping.
+    The body is this ordered list; rung content, ordering, rest markers,
+    section headings, and diagrams follow ladder.md. Inside a rung you may use
+    <pre><code>, a <figure> with inline <svg>, or a .callout. Drop the example
+    rungs (and this comment) before shipping.
   -->
       <ol class="ladder">
+        <li class="section">
+          <h2>Section title, on a ladder long enough to split</h2>
+        </li>
+
         <li class="rung">First idea.</li>
 
         <li class="rung">
