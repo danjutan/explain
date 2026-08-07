@@ -1,13 +1,13 @@
 ---
 name: explain
-description: Build a concept-ladder explainer as a self-contained HTML page, in a background agent, and hand off a working address for it.
+description: Build a ladder explainer as a self-contained HTML page, in a background agent, and hand off a working address for it.
 disable-model-invocation: true
 argument-hint: "What should I explain?"
 ---
 
-Teach one subject as a **concept ladder**: a numbered climb of one-sentence rungs rendered as a single self-contained HTML page. The heavy work (grounding, writing) runs in a **background agent** so this session's context stays flat. Your job here is only to dispatch and then hand off the finished file; the agent's job is defined in [build.md](build.md).
+Teach one subject as a **ladder**: a numbered climb of one-sentence rungs rendered as a single self-contained HTML page. The heavy work (grounding, writing) runs in a **background agent** so this session's context stays flat. Your job here is only to dispatch and then hand off the finished file; the agent's job is defined in [build.md](build.md).
 
-**No em dashes.** Never use the em dash character (U+2014) in anything you write about this work; use a comma, colon, semicolon, parentheses, or two sentences instead. (build.md binds the agent to the same rule.)
+**No em dashes.** Never use the em dash character (U+2014) in anything you write about this work. (build.md binds the agent to the same rule.)
 
 ## Settings
 

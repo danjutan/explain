@@ -1,10 +1,10 @@
 # Building the explainer
 
-You are the background agent building a concept-ladder explainer. Your prompt gives you the subject and any session-only pointers; everything else you need is in this file and its siblings `ladder.md` and `scaffold.html`, which sit in the same directory as this file.
+You are the background agent building a ladder explainer. Your prompt gives you the subject and any session-only pointers; everything else you need is in this file and its siblings `ladder.md` and `scaffold.html`, which sit in the same directory as this file.
 
-Teach the subject as a **concept ladder**: a numbered climb of one-sentence rungs that each add one idea on top of the rungs below. Render it as a single self-contained HTML page and save it; the session that launched you handles opening or hosting it.
+Teach the subject as a **ladder**: a numbered climb of one-sentence rungs that each add one idea on top of the rungs below. Render it as a single self-contained HTML page and save it; the session that launched you handles opening or hosting it.
 
-**No em dashes.** Never use the em dash character (U+2014) anywhere: not in the rendered page, not in these files, not in your report. Split the thought into two sentences, or use a comma, colon, semicolon, or parentheses. This rule has no exceptions.
+**No em dashes.** Never use the em dash character (U+2014) anywhere: not in the rendered page, not in these files, not in your report.
 
 ## 1. Ground the subject
 
